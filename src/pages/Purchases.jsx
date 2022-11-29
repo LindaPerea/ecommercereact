@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getPurchasesThunk } from '../store/slices/purchases.slice';
 
 const Purchases = () => {
@@ -24,10 +24,12 @@ const Purchases = () => {
                     <ul >
                         {purchase.cart.products.map(product => (
                             <li >
+                                <Link to={`/products/${product?.id}`}>
+                                    {product.title}
+                                    {product.price}
+                                    {product.createdAt}
+                                </Link>
 
-                                {product.title}
-                                {product.price}
-                                {product.createdAt}
 
                             </li>
                         ))}
