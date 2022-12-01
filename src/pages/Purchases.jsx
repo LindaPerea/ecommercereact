@@ -17,23 +17,26 @@ const Purchases = () => {
     }, []);
 
     return (
-        <div>
-            <h2>pruchases hello</h2>
+        <div className='container-product-found'>
+            <h2>Purchases </h2>
             <ListGroup>
                 {purchases.map(purchase => (
-                    <ul >
+                    <li key={purchase.createdAt} > 
+                    <h2>{purchase.createdAt}</h2>
+                    <ul  >
                         {purchase.cart.products.map(product => (
-                            <li >
+                            <li key={product.id}>
                                 <Link to={`/products/${product?.id}`}>
                                     {product.title}
-                                    {product.price}
-                                    {product.createdAt}
+                                    {product.productsInCart.quantity}
+                                   
                                 </Link>
 
 
                             </li>
                         ))}
                     </ul>
+                    </li>
 
 
                 ))}

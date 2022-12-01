@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Button, Card, Col, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { createCartThunk } from '../store/slices/cart.slice';
 import { getProductsThunk } from '../store/slices/products.slice';
 
 const ProductId = () => {
@@ -23,11 +24,27 @@ const ProductId = () => {
     const productsRelated = newsProducts.filter(news =>
         news.category.id === productsFound.category.id);
 
-    console.log(productsRelated);
+        const [ quantity, setQuantity ] = useState("");
+        
+        const addToCart = () => {
+            const productToCart = {
+                id: productsFound.id,
+                quantity: quantity
+            }
 
+            dispatch(createCartThunk(productToCart))
+    
+        }
+
+        // console.log(productToCart);
+
+    console.log(productsRelated);
+    // https://e-commerce-api.academlo.tech/api/v1/cart
     return (
         <div>
             <h2>{productsFound?.title}</h2>
+            <input type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+            <Button onClick={addToCart} >Add to Cart</Button>
             <Row>
                 <Col>
                     <img src={productsFound.productImgs[0]} alt="" />

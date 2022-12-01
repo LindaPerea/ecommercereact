@@ -56,3 +56,10 @@
     opacity: 0;
   }
 }
+
+/* purchases */
+
+.container-products{
+  list-style: none;
+  min-height: 100vh;
+}
