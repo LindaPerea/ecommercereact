@@ -17,7 +17,7 @@ const Cart = ({ show, handleClose }) => {
     }
   }, [])
 
-  return (
+  return ( 
 
     <Offcanvas show={show} onHide={handleClose}>
       <Offcanvas.Header closeButton>
