@@ -11,6 +11,11 @@ const NavBar = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+const handleClick = () => {
+  window.open("https://lindapereafullstack.netlify.app/#/proyects", "_blank")
+}
+
+
 
   return (
     <>
@@ -23,6 +28,7 @@ const NavBar = () => {
               <Nav.Link as={Link} to="/login"><i className="fa-regular fa-user"></i></Nav.Link>
               <Nav.Link as={Link} to="/purchases"> <i className="fa-solid fa-bag-shopping"></i> </Nav.Link>
               <Nav.Link onClick={handleShow}> <i className="fa-solid fa-cart-shopping"></i> </Nav.Link> {/*cart*/}
+              <button onClick={handleClick}>Ir a Portafolio</button>
             </Nav>
           </Navbar.Collapse>
         </Container>
